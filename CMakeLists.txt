@@ -20,7 +20,7 @@
 ### ===> Creates on 2021/07/20. <=== ###
 ### author 范特西
 CMAKE_MINIMUM_REQUIRED(VERSION 3.13...3.19)
-PROJECT(flib C)
+PROJECT(foxlibc C)
 
 SET(CMAKE_C_STANDARD 99)
 

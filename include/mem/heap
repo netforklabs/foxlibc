@@ -21,10 +21,7 @@
 /*!
  * @author 范特西
  */
-#include <foxlibc>
+#ifndef FOXLIBC_MEM_HEAP_H
+#define FOXLIBC_MEM_HEAP_H
 
-int main(void)
-{
-        printf("hello world\n");
-        return 0;
-}
+#endif /* FOXLIBC_MEM_HEAP_H */

@@ -21,10 +21,7 @@
 /*!
  * @author 范特西
  */
-#include <foxlibc>
+#ifndef FOXLIBC_SYS_SYSTEM_H
+#define FOXLIBC_SYS_SYSTEM_H
 
-int main(void)
-{
-        printf("hello world\n");
-        return 0;
-}
+#endif /* FOXLIBC_SYS_SYSTEM_H */

@@ -21,9 +21,7 @@
 /*!
  * @author 范特西
  */
-#ifndef FOXSTDLIB_
-#define FOXSTDLIB_
+#ifndef FOXLIBC_DATE_DATEFMT_H
+#define FOXLIBC_DATE_DATEFMT_H
 
-#include <stdlib.h>
-
-#endif /* FOXSTDLIB_ */
+#endif /* FOXLIBC_DATE_DATEFMT_H */
