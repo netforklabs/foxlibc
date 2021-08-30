@@ -21,7 +21,7 @@
 /*!
  * @author 范特西
  */
-#include <foxlibc>
+#include <string>
 
 int main(void)
 {

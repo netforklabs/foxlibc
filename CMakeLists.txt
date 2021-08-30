@@ -28,4 +28,5 @@ INCLUDE_DIRECTORIES(${PROJECT_NAME} SYSTEM ${CMAKE_SOURCE_DIR})
 
 add_executable(${PROJECT_NAME}
         main.c
+        string.c
 )

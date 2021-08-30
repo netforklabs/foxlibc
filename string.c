@@ -16,19 +16,14 @@
  *
  *! ************************************************************************/
 
-/*! ===> Creates on 2021/8/28. <=== */
+/*! ===> Creates on 2021/8/30. <=== */
 
 /*!
  * @author 范特西
  */
-#ifndef FOXLIBC_UTIL_STRING_H
-#define FOXLIBC_UTIL_STRING_H
+#include <string>
 
-#include <foxlibc>
-
-// --------------------------------------------------------------
-// 判断字符串是不是空字符串
-//
-__api__ inline static bool is_empty(char*);
-
-#endif /* FOXLIBC_UTIL_STRING_H */
+bool is_empty(char* str)
+{
+        return false;
+}

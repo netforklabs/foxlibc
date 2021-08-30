@@ -27,4 +27,22 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define bool char
+#define true 1
+#define false 0
+
+#ifdef WIN32
+#   define __api_import__ __declspec(dllimport)
+#   define __api_export__ __declspec(dllexport)
+#else
+#   define __api_export__
+#   define __api_import__
+#endif /* defined(WIN) || defined(WIN32) */
+
+#ifdef TAICHU_BUILD_DLL
+#   define __api__ __api_export__
+#else
+#   define __api__ __api_import__
+#endif /* TAICHU_BUILD_DLL */
+
 #endif /* FOXLIBC_H */
