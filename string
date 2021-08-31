@@ -24,11 +24,94 @@
 #ifndef FOXLIBC_UTIL_STRING_H
 #define FOXLIBC_UTIL_STRING_H
 
-#include <foxlibc>
+#include <array>
 
-// --------------------------------------------------------------
-// 判断字符串是不是空字符串
-//
-__api__ inline static bool is_empty(char*);
+/** 判断字符串是不是空字符串 */
+__api__ inline static bool stremp(const char*);
+
+/**
+ * 截取字符串
+ *
+ * @param [in] values   源字符串
+ * @param [in] begin    截取开始位置
+ * @param [in] end      截取结束位置
+ */
+__api__ static char* substr(char*, int, int);
+
+/** 获取字符串的第一次出现的位置 */
+__api__ static int strfind(char*, const char*);
+
+/** 获取字符串的第最后一次出现的位置 */
+__api__ static int strrfind(char*, const char*);
+
+/** 字符串中是否包含某个字符 */
+__api__ static bool strcontain(char*, const char*);
+
+/**
+ * 判断字符串的开头是否以前缀字符串开始。
+ *
+ * @param [in] values   源字符串
+ * @param [in] prefix   前缀字符串
+ */
+__api__ static bool strbeg(char*, const char*);
+
+/**
+ * 判断字符串的结束是否以后缀字符串开始。
+ *
+ * @param [in] values   源字符串
+ * @param [in] suffix   后缀字符串
+ */
+__api__ static bool strend(char*, const char*);
+
+/** 字符串转int */
+__api__ static int istrvalof(char*);
+
+/** 字符串转float */
+__api__ static float fstrvalof(char*);
+
+/** 字符串转bool */
+__api__ static bool bstrvalof(char*);
+
+/**
+ * 字符串拼接
+ *
+ * @param [in] src  源字符串
+ * @param [in] des  拼接的字符串
+ *
+ * @return 新的字符串大小
+ */
+__api__ static size_t strlcat(char*, const char*);
+
+/**
+ * 拷贝一个新的字符串
+ *
+ * @param [in] src  源字符串
+ * @param [in] des  拷贝后的字符串
+ *
+ * @return 字符串大小
+ */
+__api__ static size_t strlcpy(char*, char*);
+
+/**
+ * 替换源字符串中的所有目标字符串
+ *
+ * @param [in] src          源字符串
+ * @param [in] target       被替换的字符串
+ * @param [in] dest         替换后的字符串
+ *
+ * @return 字符串大小
+ */
+__api__ static size_t strrplc(char*, const char*, const char*);
+
+/**
+ * 字符串分割
+ *
+ * @param [in] src          源字符串
+ * @param [in] exp          根据这个字符串做分割
+ * @param [in] size         分割后的数组大小
+ *
+ * @return 分割后的数组
+ */
+__api__ static char** strsplit(char*, char*, size_t*);
 
 #endif /* FOXLIBC_UTIL_STRING_H */
