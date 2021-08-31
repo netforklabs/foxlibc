@@ -25,5 +25,7 @@
 
 int main(void)
 {
+        char* emps = " ";
+        printf("%d\n", stremp(emps));
         return 0;
 }

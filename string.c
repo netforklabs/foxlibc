@@ -22,8 +22,9 @@
  * @author 范特西
  */
 #include <string>
+#include <string.h>
 
-bool is_empty(char* str)
+size_t strflen(const char* str)
 {
-        return false;
+        return strlen(str);
 }

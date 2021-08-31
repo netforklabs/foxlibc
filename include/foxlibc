@@ -39,7 +39,7 @@
 #   define __api_import__
 #endif /* defined(WIN) || defined(WIN32) */
 
-#ifdef TAICHU_BUILD_DLL
+#ifdef BUILD_DLL
 #   define __api__ __api_export__
 #else
 #   define __api__ __api_import__
