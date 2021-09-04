@@ -31,4 +31,5 @@ INCLUDE_DIRECTORIES(${PROJECT_NAME} SYSTEM ${PROJECT_SOURCE_DIR}/include)
 add_executable(${PROJECT_NAME}
         main.c
         string.c
+        linkedlist.c
 )

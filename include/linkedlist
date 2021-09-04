@@ -1,0 +1,62 @@
+/*! ************************************************************************
+ *
+ * Copyright (C) 2020 netforklabs All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ *! ************************************************************************/
+
+/*! ===> Creates on 2021/9/4. <=== */
+
+/*!
+ * @author 范特西
+ */
+#ifndef FOXLIBC_LINKEDLIST_H
+#define FOXLIBC_LINKEDLIST_H
+
+#include <foxlibc>
+
+#define linked_t char*
+
+typedef void(*linked_val_free)(void*);
+
+struct linkedlist_node {
+        linked_t value;
+        struct linkedlist_node* next;
+        struct linkedlist_node* parent;
+};
+
+struct linkedlist {
+        size_t size;
+        linked_val_free free_func;
+        struct linkedlist_node* node;
+        struct linkedlist_node* last;
+};
+
+#define linkedlist_size(list) list->size
+
+__foxext__ void linkedlist_init(struct linkedlist* list);
+
+__foxext__ inline void linkedlist_init_freefunc(struct linkedlist* list, linked_val_free free_func);
+
+__foxext__ void linkedlist_add(struct linkedlist* list, linked_t value);
+
+__foxext__ struct linkedlist_node* linkedlist_get_node(struct linkedlist* list, size_t index);
+
+__foxext__ inline linked_t linkedlist_get_value(struct linkedlist* list, size_t index);
+
+__foxext__ void linkedlist_remove(struct linkedlist* list, size_t index);
+
+__foxext__ void linkedlist_insert(struct linkedlist* list, size_t index, linked_t value);
+
+#endif /* FOXLIBC_LINKEDLIST_H */

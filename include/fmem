@@ -16,35 +16,22 @@
  *
  *! ************************************************************************/
 
-/*! ===> Creates on 2021/8/28. <=== */
+/*! ===> Creates on 2021/8/31. <=== */
 
 /*!
  * @author 范特西
  */
-#ifndef FOXLIBC_H
-#define FOXLIBC_H
+#ifndef FOXLIBC_FMEM_H
+#define FOXLIBC_FMEM_H
 
-#include <stdio.h>
-#include <stdlib.h>
+inline static void* _malloc(size_t size)
+{
+        return malloc(size);
+}
 
-#include <fmem>
+inline static void _free(void* ptr)
+{
+        free(ptr);
+}
 
-#define bool char
-#define true 1
-#define false 0
-
-#ifdef WIN32
-#   define __api_import__ __declspec(dllimport)
-#   define __api_export__ __declspec(dllexport)
-#else
-#   define __api_export__
-#   define __api_import__
-#endif /* defined(WIN) || defined(WIN32) */
-
-#ifdef BUILD_DLL
-#   define __foxext__ __api_export__
-#else
-#   define __foxext__ __api_import__
-#endif /* TAICHU_BUILD_DLL */
-
-#endif /* FOXLIBC_H */
+#endif /* FOXLIBC_FMEM_H */

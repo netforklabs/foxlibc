@@ -26,26 +26,33 @@
 
 #include <foxlibc>
 
+/**
+ * 获取字符串长度，这个函数搭配着foxlibc库中的分配函数
+ * 应该是非常好用的。
+ */
+#define strflen(str) strlen(str)
+
 /** 判断字符串是不是空字符串 */
 #define stremp(str) strflen(str) == 0x0
 
 /**
  * 截取字符串
  *
- * @param [in] values   源字符串
+ * @param [in] src      源字符串
+ * @param [in] des      目标字符串
  * @param [in] begin    截取开始位置
  * @param [in] end      截取结束位置
  */
-__api__ char* substr(char*, int, int);
+__foxext__ void substr(char*, char*, int, int);
 
 /** 获取字符串的第一次出现的位置 */
-__api__ int strfind(char*, const char*);
+__foxext__ int strfind(char*, const char*);
 
 /** 获取字符串的第最后一次出现的位置 */
-__api__ int strrfind(char*, const char*);
+__foxext__ int strrfind(char*, const char*);
 
 /** 字符串中是否包含某个字符 */
-__api__ bool strincl(char*, const char*);
+__foxext__ bool strincl(char*, const char*);
 
 /**
  * 判断字符串的开头是否以前缀字符串开始。
@@ -53,7 +60,7 @@ __api__ bool strincl(char*, const char*);
  * @param [in] values   源字符串
  * @param [in] prefix   前缀字符串
  */
-__api__ bool strbeg(char*, const char*);
+__foxext__ bool strbeg(char*, const char*);
 
 /**
  * 判断字符串的结束是否以后缀字符串开始。
@@ -61,16 +68,16 @@ __api__ bool strbeg(char*, const char*);
  * @param [in] values   源字符串
  * @param [in] suffix   后缀字符串
  */
-__api__ bool strend(char*, const char*);
+__foxext__ bool strend(char*, const char*);
 
 /** 字符串转int */
-__api__ int istrvalof(char*);
+__foxext__ int istrvalof(char*);
 
 /** 字符串转float */
-__api__ float fstrvalof(char*);
+__foxext__ float fstrvalof(char*);
 
 /** 字符串转bool */
-__api__ bool bstrvalof(char*);
+__foxext__ bool bstrvalof(char*);
 
 /**
  * 字符串拼接
@@ -80,7 +87,7 @@ __api__ bool bstrvalof(char*);
  *
  * @return 新的字符串大小
  */
-__api__ size_t strlcat(char*, const char*);
+__foxext__ size_t strlcat(char*, const char*);
 
 /**
  * 拷贝一个新的字符串
@@ -90,7 +97,7 @@ __api__ size_t strlcat(char*, const char*);
  *
  * @return 字符串大小
  */
-__api__ size_t strlcpy(char*, char*);
+__foxext__ size_t strlcpy(char*, char*);
 
 /**
  * 替换源字符串中的所有目标字符串
@@ -101,7 +108,7 @@ __api__ size_t strlcpy(char*, char*);
  *
  * @return 字符串大小
  */
-__api__ size_t strrplc(char*, const char*, const char*);
+__foxext__ char* strrplc(char*, char*, char*);
 
 /**
  * 字符串分割
@@ -112,24 +119,18 @@ __api__ size_t strrplc(char*, const char*, const char*);
  *
  * @return 分割后的数组
  */
-__api__ char** strsplit(char*, char*, size_t*);
+__foxext__ char** strsplit(char*, char*, size_t*);
 
 /** 字符串转小写 */
-__api__ void lowercase(char*);
+__foxext__ void lowercase(char*);
 
 /** 字符串转大写 */
-__api__ void uppercase(char*);
+__foxext__ void uppercase(char*);
 
 /** 去除字符串前后空格 */
-__api__ size_t strtrim(char*);
+__foxext__ size_t strtrim(char*);
 
 /** 字符串格式化 */
-__api__ size_t strfmt(char*, ...);
-
-/**
- * 获取字符串长度，这个函数搭配着foxlibc库中的分配函数
- * 应该是非常好用的。
- */
-__api__ inline size_t strflen(const char*);
+__foxext__ size_t strfmt(char*, ...);
 
 #endif /* FOXLIBC_UTIL_STRING_H */
