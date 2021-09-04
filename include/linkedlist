@@ -26,7 +26,7 @@
 
 #include <foxlibc>
 
-#define linked_t char*
+#define linked_t void*
 
 typedef void(*linked_val_free)(void*);
 
@@ -38,25 +38,34 @@ struct linkedlist_node {
 
 struct linkedlist {
         size_t size;
+        // 释放节点value指针的函数
         linked_val_free free_func;
         struct linkedlist_node* node;
         struct linkedlist_node* last;
 };
 
+/** 获取链表长度 */
 #define linkedlist_size(list) list->size
 
+/** 初始化链表 */
 __foxext__ void linkedlist_init(struct linkedlist* list);
 
+/** 初始化带有释放函数的链表 */
 __foxext__ inline void linkedlist_init_freefunc(struct linkedlist* list, linked_val_free free_func);
 
+/** 往链表中添加数据 */
 __foxext__ void linkedlist_add(struct linkedlist* list, linked_t value);
 
+/** 获取链表节点 */
 __foxext__ struct linkedlist_node* linkedlist_get_node(struct linkedlist* list, size_t index);
 
+/** 获取链表节点值 */
 __foxext__ inline linked_t linkedlist_get_value(struct linkedlist* list, size_t index);
 
+/** 删除节点 */
 __foxext__ void linkedlist_remove(struct linkedlist* list, size_t index);
 
+/** 插入节点 */
 __foxext__ void linkedlist_insert(struct linkedlist* list, size_t index, linked_t value);
 
 #endif /* FOXLIBC_LINKEDLIST_H */
