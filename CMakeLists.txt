@@ -20,6 +20,7 @@
 ### ===> Creates on 2021/07/20. <=== ###
 ### author 范特西
 CMAKE_MINIMUM_REQUIRED(VERSION 3.13...3.19)
+#CMAKE_MINIMUM_REQUIRED(VERSION 3.1...)
 PROJECT(foxlibc C)
 
 SET(CMAKE_C_STANDARD 99)
@@ -31,4 +32,5 @@ INCLUDE_DIRECTORIES(${PROJECT_NAME} SYSTEM ${PROJECT_SOURCE_DIR}/include)
 add_executable(${PROJECT_NAME}
         main.c
         string.c
+        stack_link.c
 )
