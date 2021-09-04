@@ -21,11 +21,24 @@
 /*!
  * @author 范特西
  */
-#include <string>
+#include <linkedlist>
 
 int main(void)
 {
-        char* emps = " ";
-        printf("%d\n", stremp(emps));
+        struct linkedlist list;
+        linkedlist_init(&list);
+
+        linkedlist_add(&list, "a");
+        linkedlist_add(&list, "b");
+        linkedlist_add(&list, "c");
+        linkedlist_add(&list, "d");
+        linkedlist_add(&list, "e");
+
+        printf("%s\n", linkedlist_get_value(&list, 0));
+        printf("%s\n", linkedlist_get_value(&list, 1));
+        printf("%s\n", linkedlist_get_value(&list, 2));
+        printf("%s\n", linkedlist_get_value(&list, 3));
+        printf("%s\n", linkedlist_get_value(&list, 4));
+
         return 0;
 }

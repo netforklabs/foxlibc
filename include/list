@@ -24,4 +24,6 @@
 #ifndef FOXLIBC_COLLECT_LIST_H
 #define FOXLIBC_COLLECT_LIST_H
 
+#include "linkedlist"
+
 #endif /* FOXLIBC_COLLECT_LIST_H */
