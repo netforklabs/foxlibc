@@ -21,24 +21,35 @@
 /*!
  * @author 范特西
  */
-#include <linkedlist>
+#include <stack_link>
 
-int main(void)
-{
-        struct linkedlist list;
-        linkedlist_init(&list);
+void test(Stack_link stack){
+    printf("栈的大小:%u\n", stack->size);
+    printf("是否为空:%d\n", isEmpty_stack_link(stack));
+    printf("获取栈顶元素:%d\n", top_stack_link(stack));
+    print_stack_link(stack);
+}
 
-        linkedlist_add(&list, "a");
-        linkedlist_add(&list, "b");
-        linkedlist_add(&list, "c");
-        linkedlist_add(&list, "d");
-        linkedlist_add(&list, "e");
+int main(void){
+    Stack_link stack;
+    init_stack_link(stack);
+    test(stack);
 
-        printf("%s\n", linkedlist_get_value(&list, 0));
-        printf("%s\n", linkedlist_get_value(&list, 1));
-        printf("%s\n", linkedlist_get_value(&list, 2));
-        printf("%s\n", linkedlist_get_value(&list, 3));
-        printf("%s\n", linkedlist_get_value(&list, 4));
+    push_stack_link(stack,10);
+    push_stack_link(stack,5);
+    push_stack_link(stack,9);
+    push_stack_link(stack,19);
+    push_stack_link(stack,15);
+    test(stack);
 
-        return 0;
+    pop_stack_link(stack);
+    pop_stack_link(stack);
+    pop_stack_link(stack);
+    test(stack);
+
+    makeEmpty_stack_link(stack);
+    test(stack);
+
+    getchar();
+    return 0;
 }

@@ -33,10 +33,6 @@ INCLUDE_DIRECTORIES(${PROJECT_NAME} SYSTEM ${PROJECT_SOURCE_DIR}/include)
 add_executable(${PROJECT_NAME}
         main.c
         string.c
-<<<<<<< HEAD
         stack_link.c
-)
-=======
         linkedlist.c
 )
->>>>>>> 3baa3435adc02db0edf46825a343ce772cddfbaa

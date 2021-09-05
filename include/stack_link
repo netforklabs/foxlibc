@@ -21,43 +21,46 @@
 /*!
  * @author LAB
  */
- 
+
 #ifndef FOXLIBC_MEM_STACK_H
 #define FOXLIBC_MEM_STACK_H
 
 #include <foxlibc>
 #include <limits.h>
 
-// #define __API__ __foxlibc__ 
-#define __API__ __api__ 
 #define STACK_LINK_TYPE int
 
-/** 栈的链表实现,带头节点 */
+/** 栈节点 */
 typedef struct _node_link{
     STACK_LINK_TYPE val;
     struct _node_link *next;
-}Node_link,*Stack_link;
+}Node_link;
+
+/** 栈的链表实现 */
+typedef struct _stack_link{
+	size_t size;
+	struct _node_link *top;
+}Stack_head,*Stack_link;
 
 /** 打印栈数据 */
-__API__ void print_stack_link(Stack_link stack);
+__foxext__ void print_stack_link(Stack_link stack);
 
-/** 创建栈  */
-__API__ Stack_link create_stack_link();
+/** 初始化栈  */
+__foxext__ void init_stack_link(Stack_link stack);
 
 /** 判断栈是否为空  */
-__API__ bool isEmpty_stack_link(Stack_link stack);
+__foxext__ bool isEmpty_stack_link(Stack_link stack);
 
 /** 清空栈  */
-__API__ void makeEmpty_stack_link(Stack_link stack);
+__foxext__ bool makeEmpty_stack_link(Stack_link stack);
 
 /** 入栈,前插  */
-__API__ void push_stack_link(Stack_link stack,STACK_LINK_TYPE val);
+__foxext__ bool push_stack_link(Stack_link stack,STACK_LINK_TYPE val);
 
 /** 出栈  */
-__API__ STACK_LINK_TYPE pop_stack_link(Stack_link stack);
+__foxext__ STACK_LINK_TYPE pop_stack_link(Stack_link stack);
 
 /** 获取栈顶元素  */
-__API__ STACK_LINK_TYPE top_stack_link(Stack_link stack);
+__foxext__ STACK_LINK_TYPE top_stack_link(Stack_link stack);
 
 #endif /* FOXLIBC_MEM_STACK_H */
-

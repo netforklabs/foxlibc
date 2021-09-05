@@ -25,55 +25,58 @@
 #include <stack_link>
 
 void print_stack_link(Stack_link stack){
-    if(stack == NULL) return;
-    Node_link *temp = stack->next;
+    if(isEmpty_stack_link(stack)) return;
+    Node_link *temp = stack->top;
+    printf("栈的元素为:");
     while(temp != NULL){
-        printf("%d\n",temp->val);
+        printf("%d\t",temp->val);
         temp = temp->next;
     }
+    printf("\n");
 }
 
-Stack_link create_stack_link(){
-	Stack_link stack = (Stack_link)malloc(sizeof(Node_link));
-	if(stack == NULL) return stack;
-	stack->next = NULL;
-	stack->val = -1;
-	return stack;
+void init_stack_link(Stack_link stack){
+	stack = (Stack_link)malloc(sizeof(Stack_head));
+	if(stack == NULL) return;
+  stack->size = 0;
+	stack->top = NULL;
 }
 
 bool isEmpty_stack_link(Stack_link stack){
-	return (bool)(stack->next == NULL);
+	return (bool)(stack->size == 0);
 }
 
-void makeEmpty_stack_link(Stack_link stack){
-	Node_link *temp = stack->next,*del;
-	stack->next = NULL;
-    while(temp != NULL){
-        del = temp->next;
-        free(temp);
-        temp = del;
+bool makeEmpty_stack_link(Stack_link stack){
+	while (stack->size) {
+    if (!pop_stack_link(stack)) {
+      return false;
     }
+  }
+  return true;
 }
 
-void push_stack_link(Stack_link stack,STACK_LINK_TYPE val){
+bool push_stack_link(Stack_link stack,STACK_LINK_TYPE val){
 	Node_link *push_ = (Node_link*)malloc(sizeof(Node_link));
-    if(push_ == NULL) return;
+    if(push_ == NULL) return false;
 	push_->val = val;
-	push_->next = stack->next;
-	stack->next = push_;
+	push_->next = stack->top;
+	stack->top = push_;
+  ++stack->size;
+  return true;
 }
 
 STACK_LINK_TYPE pop_stack_link(Stack_link stack){
 	if(isEmpty_stack_link(stack)) return INT_MIN;
-    Node_link *pop_ = stack->next;
+    Node_link *pop_ = stack->top;
     STACK_LINK_TYPE res = pop_->val;
-    stack->next = pop_->next;
+    stack->top = pop_->next;
     free(pop_);
+    pop_ = NULL;
+    --stack->size;
     return res;
 }
 
-STACK_LINK_TYPE top(Stack_link stack){
+STACK_LINK_TYPE top_stack_link(Stack_link stack){
 	if(isEmpty_stack_link(stack)) return INT_MIN;
-    return stack->next->val;
+    return stack->top->val;
 }
-
