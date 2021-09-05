@@ -30,37 +30,37 @@
 
 #define STACK_LINK_TYPE int
 
-/** æ ˆèŠ‚ç‚¹ */
+/** Õ»½Úµã */
 typedef struct _node_link{
     STACK_LINK_TYPE val;
     struct _node_link *next;
 }Node_link;
 
-/** æ ˆçš„é“¾è¡¨å®ç° */
+/** Õ»µÄÁ´±íÊµÏÖ */
 typedef struct _stack_link{
 	size_t size;
-	struct _node_link *top;
+	Node_link *top;
 }Stack_head,*Stack_link;
 
-/** æ‰“å°æ ˆæ•°æ® */
+/** ´òÓ¡Õ»Êı¾İ */
 __foxext__ void print_stack_link(Stack_link stack);
 
-/** åˆå§‹åŒ–æ ˆ  */
-__foxext__ void init_stack_link(Stack_link stack);
+/** ³õÊ¼»¯Õ»  */
+__foxext__ void init_stack_link(Stack_link *stack);
 
-/** åˆ¤æ–­æ ˆæ˜¯å¦ä¸ºç©º  */
+/** ÅĞ¶ÏÕ»ÊÇ·ñÎª¿Õ  */
 __foxext__ bool isEmpty_stack_link(Stack_link stack);
 
-/** æ¸…ç©ºæ ˆ  */
+/** Çå¿ÕÕ»  */
 __foxext__ bool makeEmpty_stack_link(Stack_link stack);
 
-/** å…¥æ ˆ,å‰æ’  */
+/** ÈëÕ»,Ç°²å  */
 __foxext__ bool push_stack_link(Stack_link stack,STACK_LINK_TYPE val);
 
-/** å‡ºæ ˆ  */
+/** ³öÕ»  */
 __foxext__ STACK_LINK_TYPE pop_stack_link(Stack_link stack);
 
-/** è·å–æ ˆé¡¶å…ƒç´   */
+/** »ñÈ¡Õ»¶¥ÔªËØ  */
 __foxext__ STACK_LINK_TYPE top_stack_link(Stack_link stack);
 
 #endif /* FOXLIBC_MEM_STACK_H */

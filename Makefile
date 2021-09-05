@@ -129,6 +129,30 @@ foxlibc/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/foxlibc.dir/build.make CMakeFiles/foxlibc.dir/build
 .PHONY : foxlibc/fast
 
+heap_min.o: heap_min.c.o
+.PHONY : heap_min.o
+
+# target to build an object file
+heap_min.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/foxlibc.dir/build.make CMakeFiles/foxlibc.dir/heap_min.c.o
+.PHONY : heap_min.c.o
+
+heap_min.i: heap_min.c.i
+.PHONY : heap_min.i
+
+# target to preprocess a source file
+heap_min.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/foxlibc.dir/build.make CMakeFiles/foxlibc.dir/heap_min.c.i
+.PHONY : heap_min.c.i
+
+heap_min.s: heap_min.c.s
+.PHONY : heap_min.s
+
+# target to generate assembly for a file
+heap_min.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/foxlibc.dir/build.make CMakeFiles/foxlibc.dir/heap_min.c.s
+.PHONY : heap_min.c.s
+
 linkedlist.o: linkedlist.c.o
 .PHONY : linkedlist.o
 
@@ -234,6 +258,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... foxlibc"
+	@echo "... heap_min.o"
+	@echo "... heap_min.i"
+	@echo "... heap_min.s"
 	@echo "... linkedlist.o"
 	@echo "... linkedlist.i"
 	@echo "... linkedlist.s"
@@ -259,4 +286,3 @@ help:
 cmake_check_build_system:
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
-

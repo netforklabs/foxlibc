@@ -19,9 +19,29 @@
 /*! ===> Creates on 2021/8/28. <=== */
 
 /*!
- * @author 范特西
+ * @author LAB
  */
 #ifndef FOXLIBC_MEM_HEAP_H
 #define FOXLIBC_MEM_HEAP_H
+
+#include <foxlibc>
+#define HEAP_MIN_CAPACITY 100
+#define HEAP_MIN_TYPE int
+
+/** 最小堆 */
+typedef struct _heap_min{
+    HEAP_MIN_TYPE val[HEAP_MIN_CAPACITY];
+    size_t capacity;
+    size_t size;
+}Heap_block,*Heap_min;
+
+/** 初始化堆 */
+__foxext__ void init_heap_min(Heap_min *heap);
+
+/** 打印堆 */
+__foxext__ void print_heap_min(Heap_min heap);
+
+/** 插入数据 */
+__foxext__ void insert_heap_min(Heap_min heap,HEAP_MIN_TYPE val);
 
 #endif /* FOXLIBC_MEM_HEAP_H */

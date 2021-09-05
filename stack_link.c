@@ -27,19 +27,21 @@
 void print_stack_link(Stack_link stack){
     if(isEmpty_stack_link(stack)) return;
     Node_link *temp = stack->top;
-    printf("栈的元素为:");
+    printf("ջ��Ԫ��Ϊ:");
     while(temp != NULL){
-        printf("%d\t",temp->val);
+        printf("%d ",temp->val);
         temp = temp->next;
     }
     printf("\n");
 }
 
-void init_stack_link(Stack_link stack){
-	stack = (Stack_link)malloc(sizeof(Stack_head));
-	if(stack == NULL) return;
-  stack->size = 0;
-	stack->top = NULL;
+void init_stack_link(Stack_link *stack){
+  if((*stack)->top != NULL) makeEmpty_stack_link(*stack);
+  if(*stack != NULL) return;
+	*stack = (Stack_link)malloc(sizeof(Stack_head));
+	if(*stack == NULL) return;
+  (*stack)->size = 0;
+	(*stack)->top = NULL;
 }
 
 bool isEmpty_stack_link(Stack_link stack){
@@ -57,7 +59,7 @@ bool makeEmpty_stack_link(Stack_link stack){
 
 bool push_stack_link(Stack_link stack,STACK_LINK_TYPE val){
 	Node_link *push_ = (Node_link*)malloc(sizeof(Node_link));
-    if(push_ == NULL) return false;
+  if(push_ == NULL) return false;
 	push_->val = val;
 	push_->next = stack->top;
 	stack->top = push_;

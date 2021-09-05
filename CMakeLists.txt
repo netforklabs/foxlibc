@@ -35,4 +35,5 @@ add_executable(${PROJECT_NAME}
         string.c
         stack_link.c
         linkedlist.c
+        heap_min.c
 )

@@ -19,36 +19,26 @@
 /*! ===> Creates on 2021/8/28. <=== */
 
 /*!
- * @author 范特西
+ * @author LAB
  */
-#include <stack_link>
+#include <heap_min>
 
-void test(Stack_link stack){
-    printf("栈的大小:%u\n", stack->size);
-    printf("是否为空:%d\n", isEmpty_stack_link(stack));
-    printf("获取栈顶元素:%d\n", top_stack_link(stack));
-    print_stack_link(stack);
+void test(Heap_min heap){
+    printf("�ѵ�����:%u\n", heap->capacity);
+    printf("�ѵĴ�С:%d\n", heap->size);
+    print_heap_min(heap);
+    printf("\n");
 }
 
 int main(void){
-    Stack_link stack;
-    init_stack_link(stack);
-    test(stack);
+    Heap_min heap = NULL;
+    init_heap_min(&heap);
+    test(heap);
 
-    push_stack_link(stack,10);
-    push_stack_link(stack,5);
-    push_stack_link(stack,9);
-    push_stack_link(stack,19);
-    push_stack_link(stack,15);
-    test(stack);
-
-    pop_stack_link(stack);
-    pop_stack_link(stack);
-    pop_stack_link(stack);
-    test(stack);
-
-    makeEmpty_stack_link(stack);
-    test(stack);
+    insert_heap_min(heap,12);
+    insert_heap_min(heap,10);
+    insert_heap_min(heap,6);
+    test(heap);
 
     getchar();
     return 0;
