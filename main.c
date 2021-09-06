@@ -38,6 +38,20 @@ int main(void){
     insert_heap_min(heap,12);
     insert_heap_min(heap,10);
     insert_heap_min(heap,6);
+    insert_heap_min(heap,100);
+    insert_heap_min(heap,99);
+    insert_heap_min(heap,200);
+    insert_heap_min(heap,2);
+    insert_heap_min(heap,1);
+    test(heap);
+
+    printf("É¾³ı:%d\n", delete_min_heap_min(heap));
+    test(heap);
+    printf("É¾³ı:%d\n", delete_min_heap_min(heap));
+    test(heap);
+    printf("É¾³ı:%d\n", delete_min_heap_min(heap));
+    test(heap);
+    printf("É¾³ı:%d\n", delete_min_heap_min(heap));
     test(heap);
 
     getchar();

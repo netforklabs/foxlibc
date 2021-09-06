@@ -25,6 +25,7 @@
 #define FOXLIBC_MEM_HEAP_H
 
 #include <foxlibc>
+#include <limits.h>
 #define HEAP_MIN_CAPACITY 100
 #define HEAP_MIN_TYPE int
 
@@ -43,5 +44,16 @@ __foxext__ void print_heap_min(Heap_min heap);
 
 /** 插入数据 */
 __foxext__ void insert_heap_min(Heap_min heap,HEAP_MIN_TYPE val);
+
+/** 小的向上渗透
+* pos -- 向上渗透的起始位置
+*/
+__foxext__ void percolate_up_heap_min(Heap_min heap,size_t pos);
+
+/** 删除堆中最小的元素 */
+__foxext__ int delete_min_heap_min(Heap_min heap);
+
+/** 最小根元素向下渗透 */
+__foxext__ void percolate_down_heap_min(Heap_min heap);
 
 #endif /* FOXLIBC_MEM_HEAP_H */
