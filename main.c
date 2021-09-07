@@ -45,15 +45,23 @@ int main(void){
     insert_heap_min(heap,1);
     test(heap);
 
-    printf("É¾³ı:%d\n", delete_min_heap_min(heap));
-    test(heap);
-    printf("É¾³ı:%d\n", delete_min_heap_min(heap));
-    test(heap);
-    printf("É¾³ı:%d\n", delete_min_heap_min(heap));
-    test(heap);
-    printf("É¾³ı:%d\n", delete_min_heap_min(heap));
-    test(heap);
+    // printf("É¾³ı:%d\n", delete_min_heap_min(heap));
+    // test(heap);
+    // printf("É¾³ı:%d\n", delete_min_heap_min(heap));
+    // test(heap);
+    // printf("É¾³ı:%d\n", delete_min_heap_min(heap));
+    // test(heap);
+    // printf("É¾³ı:%d\n", delete_min_heap_min(heap));
+    // test(heap);
+    //
+    // printf("É¾³ı:%d\n", delete_heap_min(heap,10));
+    // test(heap);
 
+    HEAP_MIN_TYPE arr[8] = {12,10,6,100,99,200,2,1};
+    Heap_min heap1 = build_heap_min(arr,8);
+    test(heap1);
+
+    printf("ÊäÈëÈÎÒâ×Ö·ûÍË³ö!!!\n");
     getchar();
     return 0;
 }

@@ -29,31 +29,42 @@
 #define HEAP_MIN_CAPACITY 100
 #define HEAP_MIN_TYPE int
 
-/** æœ€å°å † */
+/** ×îĞ¡¶Ñ */
 typedef struct _heap_min{
     HEAP_MIN_TYPE val[HEAP_MIN_CAPACITY];
     size_t capacity;
     size_t size;
 }Heap_block,*Heap_min;
 
-/** åˆå§‹åŒ–å † */
+/** ³õÊ¼»¯¶Ñ */
 __foxext__ void init_heap_min(Heap_min *heap);
 
-/** æ‰“å°å † */
+/** ´òÓ¡¶Ñ */
 __foxext__ void print_heap_min(Heap_min heap);
 
-/** æ’å…¥æ•°æ® */
+/** ²åÈëÊı¾İ */
 __foxext__ void insert_heap_min(Heap_min heap,HEAP_MIN_TYPE val);
 
-/** å°çš„å‘ä¸Šæ¸—é€
-* pos -- å‘ä¸Šæ¸—é€çš„èµ·å§‹ä½ç½®
+/** Ğ¡µÄÏòÉÏÉøÍ¸
+* pos -- ÏòÉÏÉøÍ¸µÄÆğÊ¼Î»ÖÃ
 */
 __foxext__ void percolate_up_heap_min(Heap_min heap,size_t pos);
 
-/** åˆ é™¤å †ä¸­æœ€å°çš„å…ƒç´  */
+/** É¾³ı¶ÑÖĞ×îĞ¡µÄÔªËØ */
 __foxext__ int delete_min_heap_min(Heap_min heap);
 
-/** æœ€å°æ ¹å…ƒç´ å‘ä¸‹æ¸—é€ */
-__foxext__ void percolate_down_heap_min(Heap_min heap);
+/** É¾³ı¶ÑÖĞÄ³¸öË÷ÒıµÄÔªËØ */
+__foxext__ int delete_heap_min(Heap_min heap,size_t pos);
+
+/** ´óµÄÏòÏÂÉøÍ¸
+* pos -- ÏòÏÂÉøÍ¸µÄÔªËØÎ»ÖÃ
+*/
+__foxext__ void percolate_down_heap_min(Heap_min heap,size_t pos);
+
+/** ½¨¶Ñ,ËùÓĞ·ÇÒ¶×Ó½ÚµãÏÂÂË
+* ele -- Òª½¨ÔìµÄÔªËØÊı×é
+* len -- Òª½¨ÔìµÄÔªËØÊı×éµÄ³¤¶È
+*/
+__foxext__ Heap_min build_heap_min(HEAP_MIN_TYPE *ele,int len);
 
 #endif /* FOXLIBC_MEM_HEAP_H */
