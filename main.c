@@ -21,45 +21,13 @@
 /*!
  * @author LAB
  */
-#include <heap_min>
+#include <hash_map>
 
-void test(Heap_min heap){
-    printf("¶ÑµÄÈİÁ¿:%u\n", heap->capacity);
-    printf("¶ÑµÄ´óĞ¡:%d\n", heap->size);
-    print_heap_min(heap);
-    printf("\n");
+void test(Hash_map map){
 }
 
 int main(void){
-    Heap_min heap = NULL;
-    init_heap_min(&heap);
-    test(heap);
-
-    insert_heap_min(heap,12);
-    insert_heap_min(heap,10);
-    insert_heap_min(heap,6);
-    insert_heap_min(heap,100);
-    insert_heap_min(heap,99);
-    insert_heap_min(heap,200);
-    insert_heap_min(heap,2);
-    insert_heap_min(heap,1);
-    test(heap);
-
-    // printf("É¾³ı:%d\n", delete_min_heap_min(heap));
-    // test(heap);
-    // printf("É¾³ı:%d\n", delete_min_heap_min(heap));
-    // test(heap);
-    // printf("É¾³ı:%d\n", delete_min_heap_min(heap));
-    // test(heap);
-    // printf("É¾³ı:%d\n", delete_min_heap_min(heap));
-    // test(heap);
-    //
-    // printf("É¾³ı:%d\n", delete_heap_min(heap,10));
-    // test(heap);
-
-    HEAP_MIN_TYPE arr[8] = {12,10,6,100,99,200,2,1};
-    Heap_min heap1 = build_heap_min(arr,8);
-    test(heap1);
+    Hash_map map = NULL;
 
     printf("ÊäÈëÈÎÒâ×Ö·ûÍË³ö!!!\n");
     getchar();

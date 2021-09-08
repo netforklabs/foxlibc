@@ -36,4 +36,5 @@ add_executable(${PROJECT_NAME}
         stack_link.c
         linkedlist.c
         heap_min.c
+        hash_map.c
 )

@@ -129,6 +129,30 @@ foxlibc/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/foxlibc.dir/build.make CMakeFiles/foxlibc.dir/build
 .PHONY : foxlibc/fast
 
+hash_map.o: hash_map.c.o
+.PHONY : hash_map.o
+
+# target to build an object file
+hash_map.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/foxlibc.dir/build.make CMakeFiles/foxlibc.dir/hash_map.c.o
+.PHONY : hash_map.c.o
+
+hash_map.i: hash_map.c.i
+.PHONY : hash_map.i
+
+# target to preprocess a source file
+hash_map.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/foxlibc.dir/build.make CMakeFiles/foxlibc.dir/hash_map.c.i
+.PHONY : hash_map.c.i
+
+hash_map.s: hash_map.c.s
+.PHONY : hash_map.s
+
+# target to generate assembly for a file
+hash_map.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/foxlibc.dir/build.make CMakeFiles/foxlibc.dir/hash_map.c.s
+.PHONY : hash_map.c.s
+
 heap_min.o: heap_min.c.o
 .PHONY : heap_min.o
 
@@ -258,6 +282,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... foxlibc"
+	@echo "... hash_map.o"
+	@echo "... hash_map.i"
+	@echo "... hash_map.s"
 	@echo "... heap_min.o"
 	@echo "... heap_min.i"
 	@echo "... heap_min.s"
