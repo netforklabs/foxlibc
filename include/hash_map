@@ -25,16 +25,49 @@
 #define FOXLIBC_COLLECT_MAP_H
 
 #include <foxlibc>
+#define KEY_HASHMAP_TYPE char*
+#define VALUE_HASHMAP_TYPE char*
+
+static size_t MIN_HASHMAP_CAPACITY = 64;
+static float DEFAULT_LOAD_FACTOR = 0.75f; // 默认
 
 typedef struct _hash_node{
-    char* key;
-    char* value;
+    KEY_HASHMAP_TYPE key;
+    VALUE_HASHMAP_TYPE value;
     struct _hash_node* next;
 }Hash_node;
 
 typedef struct _hash_map{
-    int size;
+    size_t size;
+    size_t capacity;
     Hash_node** hash_arr;
-}*Hash_map;
+}Hash_block,*Hash_map;
+
+/** 打印 */
+__foxext__ void print_hash_map(Hash_map map);
+
+/** 初始化 */
+__foxext__ void init_hash_map(Hash_map* map);
+
+/** hash函数 */
+__foxext__ int hashCode_hash_map(Hash_map map,KEY_HASHMAP_TYPE key);
+
+/** 比较键值的hashcode */
+__foxext__ bool equal_hash_map(KEY_HASHMAP_TYPE key1,KEY_HASHMAP_TYPE key2);
+
+/** 添加键值 */
+__foxext__ void put_hash_map(Hash_map map,KEY_HASHMAP_TYPE key,VALUE_HASHMAP_TYPE value);
+
+/** 通过键取得值 */
+__foxext__ VALUE_HASHMAP_TYPE get_hash_map(Hash_map map,KEY_HASHMAP_TYPE key);
+
+/** 移除键值 */
+__foxext__ bool remove_hash_map(Hash_map map,KEY_HASHMAP_TYPE key);
+
+/** 清空 */
+__foxext__  void makeEmpty_hash_map(Hash_map map);
+
+/** 是否存在键值 */
+__foxext__ bool exists_hash_map(Hash_map map,KEY_HASHMAP_TYPE key);
 
 #endif /* FOXLIBC_COLLECT_MAP_H */

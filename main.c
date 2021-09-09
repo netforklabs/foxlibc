@@ -29,7 +29,7 @@ void test(Hash_map map){
 int main(void){
     Hash_map map = NULL;
 
-    printf("ÊäÈëÈÎÒâ×Ö·ûÍË³ö!!!\n");
+    printf("è¾“å…¥ä»»æ„å­—ç¬¦é€€å‡º!!!\n");
     getchar();
     return 0;
 }

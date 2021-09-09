@@ -27,7 +27,7 @@
 void print_stack_link(Stack_link stack){
     if(isEmpty_stack_link(stack)) return;
     Node_link *temp = stack->top;
-    printf("ջ��Ԫ��Ϊ:");
+    printf("栈的元素为:");
     while(temp != NULL){
         printf("%d ",temp->val);
         temp = temp->next;

@@ -12,7 +12,7 @@ void init_heap_min(Heap_min *heap){
 }
 
 void print_heap_min(Heap_min heap){
-  printf("¶ÑµÄÔªËØÎª:");
+  printf("å †çš„å…ƒç´ ä¸º:");
   for (size_t i = 0; i < heap->size; i++) {
     printf("%d ", heap->val[i]);
   }
@@ -47,7 +47,7 @@ int delete_min_heap_min(Heap_min heap){
 int delete_heap_min(Heap_min heap,size_t pos){
   if((0 == heap->size) || pos >= heap->size) return INT_MIN;
   HEAP_MIN_TYPE del = heap->val[pos];
-  heap->val[pos] = heap->val[heap->size-1]; // ½«×îºóÒ»¸öÔªËØ¸³Öµ¸øÒªÉ¾³ýµÄÔªËØ
+  heap->val[pos] = heap->val[heap->size-1]; // å°†æœ€åŽä¸€ä¸ªå…ƒç´ èµ‹å€¼ç»™è¦åˆ é™¤çš„å…ƒç´ 
   --heap->size;
   percolate_down_heap_min(heap,pos);
   return del;
@@ -55,24 +55,24 @@ int delete_heap_min(Heap_min heap,size_t pos){
 
 void percolate_down_heap_min(Heap_min heap,size_t pos){
   if(0 == heap->size) return;
-  HEAP_MIN_TYPE down = heap->val[pos]; // ÒªÏÂ½µµÄÔªËØ
-  size_t middle = pos; // ¿ÕÑ¨µÄË÷Òý
-  size_t temp = 0; // ×Ó·ÖÖ§Ë÷Òý
-  size_t up = 0; // ×óÓÒ·ÖÖ§Ð¡µÄÔªËØË÷Òý(¿ÉÒÔÉ¾)
+  HEAP_MIN_TYPE down = heap->val[pos]; // è¦ä¸‹é™çš„å…ƒç´ 
+  size_t middle = pos; // ç©ºç©´çš„ç´¢å¼•
+  size_t temp = 0; // å­åˆ†æ”¯ç´¢å¼•
+  size_t up = 0; // å·¦å³åˆ†æ”¯å°çš„å…ƒç´ ç´¢å¼•(å¯ä»¥åˆ )
   while (true) {
-    temp = (middle+1)*2; // ÓÒ·ÖÖ§,Ë÷Òý´Ó0¿ªÊ¼
-    if(temp > heap->size){ // ×óÓÒ·ÖÖ§¶¼²»´æÔÚ
+    temp = (middle+1)*2; // å³åˆ†æ”¯,ç´¢å¼•ä»Ž0å¼€å§‹
+    if(temp > heap->size){ // å·¦å³åˆ†æ”¯éƒ½ä¸å­˜åœ¨
       break;
-    }else if(temp == heap->size){ // Ö»ÓÐ×ó·ÖÖ§
+    }else if(temp == heap->size){ // åªæœ‰å·¦åˆ†æ”¯
       up = temp - 1;
-    }else{ // ×óÓÒ·ÖÖ§¶¼´æÔÚ
+    }else{ // å·¦å³åˆ†æ”¯éƒ½å­˜åœ¨
       up = (heap->val[temp-1] < heap->val[temp])?(temp-1):temp;
     }
-    if(down <= heap->val[up]) break; // ÏÂ½µÔªËØÓë×Ó·ÖÖ§×îÐ¡ÔªËØ±È½Ï
-    heap->val[middle] = heap->val[up]; // ½«·ÖÖ§ÖÐÐ¡µÄ¸³¸ø¸¸¿ÕÑ¨
+    if(down <= heap->val[up]) break; // ä¸‹é™å…ƒç´ ä¸Žå­åˆ†æ”¯æœ€å°å…ƒç´ æ¯”è¾ƒ
+    heap->val[middle] = heap->val[up]; // å°†åˆ†æ”¯ä¸­å°çš„èµ‹ç»™çˆ¶ç©ºç©´
     middle = up;
   }
-  heap->val[middle] = down; // ½«ÏÂ½µµÄÖµ¸³¸ø×îºóµÃµ½µÄ¿ÕÑ¨
+  heap->val[middle] = down; // å°†ä¸‹é™çš„å€¼èµ‹ç»™æœ€åŽå¾—åˆ°çš„ç©ºç©´
 }
 
 Heap_min build_heap_min(HEAP_MIN_TYPE *ele,int len){
@@ -80,10 +80,14 @@ Heap_min build_heap_min(HEAP_MIN_TYPE *ele,int len){
   if(heap == NULL) return NULL;
   heap->capacity = HEAP_MIN_CAPACITY;
   heap->size = len;
-  for (size_t i = 0; i < len; i++) { // ¸³Öµ
+  for (size_t i = 0; i < len; i++) { // èµ‹å€¼
     heap->val[i] = ele[i];
   }
-  for (int i = (len/2-1); i >= 0; i--) { // ÏÂ½µ
+  for (int i = (len/2-1); i >= 0; i--) { // ä¸‹é™
     percolate_down_heap_min(heap,i);
   }
+}
+
+bool makeEmpty_heap_min(Heap_min heap){
+  heap->size = 0;
 }
