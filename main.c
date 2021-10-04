@@ -27,9 +27,32 @@ void test(Hash_map map){
 }
 
 int main(void){
-    Hash_map map = NULL;
+    Hash_map map;
+    init_hash_map(&map);
 
-    printf("输入任意字符退出!!!\n");
+    put_hash_map(map,"aaa","aaa1");
+    put_hash_map(map,"bbb","aaa2");
+    put_hash_map(map,"ccc","aaa3");
+    put_hash_map(map,"ddd","aaa4");
+    put_hash_map(map,"eee","aaa5");
+    print_hash_map(map);
+
+    printf("get:%s\n",get_hash_map(map,"ccc"));
+
+    remove_hash_map(map,"zzz");
+    remove_hash_map(map,"aaa");
+    print_hash_map(map);
+
+    printf("equal:%d\n",equal_hash_map("aaa","aaa"));
+    printf("equal:%d\n",equal_hash_map("aaa","aa1"));
+
+    printf("exist:%d\n",exists_hash_map(map,"bbb"));
+    printf("exist:%d\n",exists_hash_map(map,"aaa"));
+
+    makeEmpty_hash_map(map);
+    print_hash_map(map);
+
+    printf("input every char exit...\n");
     getchar();
     return 0;
 }

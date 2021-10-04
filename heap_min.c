@@ -5,7 +5,7 @@ void init_heap_min(Heap_min *heap){
     (*heap)->size = 0;
     return;
   }
-  *heap = (Heap_min)malloc(sizeof(Heap_block));
+  *heap = (Heap_min)_malloc(sizeof(Heap_block));
   if(*heap == NULL) return;
   (*heap)->capacity = HEAP_MIN_CAPACITY;
   (*heap)->size = 0;
@@ -76,7 +76,7 @@ void percolate_down_heap_min(Heap_min heap,size_t pos){
 }
 
 Heap_min build_heap_min(HEAP_MIN_TYPE *ele,int len){
-  Heap_min heap = (Heap_min)malloc(sizeof(Heap_block));
+  Heap_min heap = (Heap_min)_malloc(sizeof(Heap_block));
   if(heap == NULL) return NULL;
   heap->capacity = HEAP_MIN_CAPACITY;
   heap->size = len;

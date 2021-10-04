@@ -25,8 +25,11 @@
 #define FOXLIBC_COLLECT_MAP_H
 
 #include <foxlibc>
+#include <string.h>
+
 #define KEY_HASHMAP_TYPE char*
 #define VALUE_HASHMAP_TYPE char*
+#define hashCode_hash_map(key,len) _hashCode_hash_map(key,len,17)
 
 static size_t MIN_HASHMAP_CAPACITY = 64;
 static float DEFAULT_LOAD_FACTOR = 0.75f; // 默认
@@ -49,11 +52,23 @@ __foxext__ void print_hash_map(Hash_map map);
 /** 初始化 */
 __foxext__ void init_hash_map(Hash_map* map);
 
-/** hash函数 */
-__foxext__ int hashCode_hash_map(Hash_map map,KEY_HASHMAP_TYPE key);
+/** hash函数
+ * @param key 字符串key
+ * @param len key长度
+ * @param seed 种子(default 17)
+ * @return hash值
+ */
+__foxext__ size_t _hashCode_hash_map(const char *key, size_t len, size_t seed);
 
 /** 比较键值的hashcode */
 __foxext__ bool equal_hash_map(KEY_HASHMAP_TYPE key1,KEY_HASHMAP_TYPE key2);
+
+/**
+ * @param key hash值
+ * @param capacity 数组容量
+ * @return key在数组中的索引
+ */
+__foxext__ size_t getIndex_hash_map(size_t key,size_t capacity);
 
 /** 添加键值 */
 __foxext__ void put_hash_map(Hash_map map,KEY_HASHMAP_TYPE key,VALUE_HASHMAP_TYPE value);

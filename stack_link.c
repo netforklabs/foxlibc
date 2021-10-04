@@ -38,7 +38,7 @@ void print_stack_link(Stack_link stack){
 void init_stack_link(Stack_link *stack){
   if((*stack)->top != NULL) makeEmpty_stack_link(*stack);
   if(*stack != NULL) return;
-	*stack = (Stack_link)malloc(sizeof(Stack_head));
+	*stack = (Stack_link)_malloc(sizeof(Stack_head));
 	if(*stack == NULL) return;
   (*stack)->size = 0;
 	(*stack)->top = NULL;
@@ -58,7 +58,7 @@ bool makeEmpty_stack_link(Stack_link stack){
 }
 
 bool push_stack_link(Stack_link stack,STACK_LINK_TYPE val){
-	Node_link *push_ = (Node_link*)malloc(sizeof(Node_link));
+	Node_link *push_ = (Node_link*)_malloc(sizeof(Node_link));
   if(push_ == NULL) return false;
 	push_->val = val;
 	push_->next = stack->top;
@@ -72,7 +72,7 @@ STACK_LINK_TYPE pop_stack_link(Stack_link stack){
     Node_link *pop_ = stack->top;
     STACK_LINK_TYPE res = pop_->val;
     stack->top = pop_->next;
-    free(pop_);
+    _free(pop_);
     pop_ = NULL;
     --stack->size;
     return res;
